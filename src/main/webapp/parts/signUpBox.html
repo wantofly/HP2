@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<!-- Login Modal -->
+	
+	<div class="modal fade" id="signUpBox" ng-controller="signUpController" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+			<form name="formReg" ng-submit="onReg()" role="form">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="exampleModalLabel">新用户注册</h4>
+					</div>
+					<div class="modal-body">
+
+						<div class="form-group"
+							ng-class="{ 'has-error': formReg.userName.$dirty && formReg.userName.$error.required }">
+							<label for="userName">手机号码</label>
+							<input type="number" name="userName" id="userName" 
+								class="form-control"
+								ng-minlength="11" ng-maxlength="11" ng-pattern="/^1[0-9]{10}$/"
+								ng-model="vm.userName" 
+								required />
+								<span ng-show="formReg.userName.$dirty && formReg.userName.$error.required" class="help-block">请输入手机号码</span>
+								<span ng-show="formReg.userName.$error.minlength || formReg.userName.$error.maxlength" class="help-block">长度不对</span>
+								<span ng-show="formReg.userName.$error.pattern" class="help-block">手机格式不对</span>
+						</div>
+						<div class="form-group" 
+							ng-class="{ 'has-error': formReg.password.$dirty && formReg.password.$error.required }">
+							<label for="password">用户密码</label>
+							<input type="password"
+								name="password" id="password" class="form-control"
+								ng-minlength="6" ng-maxlength="20" ng-model="vm.password"
+								required />
+								<span ng-show="formReg.password.$dirty && formReg.password.$error.required" class="help-block">请输入密码</span>
+								<span ng-show="formReg.password.$error.minlength || formReg.password.$error.maxlength" class="help-block">长度不对</span>
+						</div>
+						<div class="form-group" 
+							ng-class="{ 'has-error': formReg.password.$dirty && formReg.password.$error.required }">
+							<label for="recommendCode">推荐码</label>
+							<input type="text"
+								name="recommendCode" id="recommendCode" class="form-control"
+								ng-model="vm.recommendCode" />
+								<span ng-show="formReg.recommendCode.$dirty && formReg.recommendCode.$error.required" class="help-block">请输入密码</span>
+								<span ng-show="formReg.recommendCode.$error.minlength || formReg.recommendCode.$error.maxlength" class="help-block">长度不对</span>
+						</div>
+						<label for="mobcode">手机验证码</label>
+						<div class="input-group">
+						  	<input type="text" name=""mobcode" class="form-control" placeholder="手机验证码" aria-describedby="basic-addon2" 
+						  		ng-model="vm.mobcode">
+						  	<span class="input-group-addon" id="basic-addon2"  style="padding:0px 10px" >
+						  	<a class="btn btn-default btn-sm" ng-disabled="vm.dataLoading || (paracont != '获取验证码') " style="margin:0px" aria-label="Left Align" ng-click="sendPhoneCode()">
+						  		{{paracont}}
+							</a>
+							</span>
+						</div>
+						
+						<span ng-show="formReg.$error.loginerror" class="help-block">用户注册错误: {{ formReg.$error.loginerror.jsonmsg }} </span>
+					</div>
+					<div class="modal-footer">
+						<img ng-if="vm.dataLoading"
+							src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="submit" ng-disabled="formReg.$invalid || vm.dataLoading"
+							class="btn btn-primary">注册</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var wait = 60;
+		function time(o) {
+			if (wait == 0) {
+				o.removeAttribute("disabled");
+				o.value = "免费获取验证码";
+				wait = 60;
+			} else {
+				o.setAttribute("disabled", true);
+				o.value = "重新发送(" + wait + ")";
+				wait--;
+				setTimeout(function() {
+					time(o)
+				}, 1000)
+			}
+		}
+		document.getElementById("btn").onclick = function() {
+			time(this);
+		}
+	</script>
+</body>

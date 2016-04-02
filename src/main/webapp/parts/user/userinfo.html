@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="page-header">
+		<h1>
+			用户信息 <small>基本信息修改</small>
+		</h1>
+	</div>
+	
+	<div ng-show="UserSvc.getCurrentUser()" class="row" id="form-views">
+		<ul id="userinfoTab" class="nav nav-tabs" role="tablist">
+			<li role="presentation" ui-sref-active="active" ui-sref="userinfo.basic" ><a href="#/userinfo/basic">基本信息</a></li>
+			<li role="presentation" ui-sref-active="active" ui-sref="userinfo.balance" ><a href="#/userinfo/balance">余额信息</a></li>
+			<li role="presentation" ui-sref-active="active" ui-sref="userinfo.msg" ><a href="#/userinfo/msg">通知消息 <span class="badge">42</span></a></li>
+		</ul>
+		<div ui-view></div>
+	</div>
+	<div ng-show="!UserSvc.getCurrentUser()" class="row" id="form-views">
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInBox" data-whatever="@mdo">点击登录</button>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpBox" data-whatever="@mdo">注册新用户</button>
+		<a ng-show="!UserSvc.getCurrentUser()" type="button" class="btn btn-primary" ui-sref="start.forget" href="#/start/forget">忘记密码</a>
+	</div>
+	
+	<div class="well" style="margin-top:20px;">
+		<span class="">{{scopename}}</span>
+	</div>
+	
+	<script type="text/javascript">
+	$('#signInBox').on('hidden.bs.modal', function (e) {
+		  console.log('signIn dismiss ' + window.location);
+		  if (window.location.indexOf('userinfo/basic') > 0){
+			  //angular-ui-bootstrap.js
+		  }
+	});
+	</script>
+</body>
+</html>

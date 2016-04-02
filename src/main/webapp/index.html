@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+<title>沪牌不求人</title>
+
+<!-- Bootstrap core CSS -->
+<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap theme -->
+<!-- link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet" -->
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Custom styles for this template -->
+<link type="text/css" rel="stylesheet" href="css/default.css" />
+<link type="text/css" rel="stylesheet" href="css/font.css" />
+<link type="text/css" rel="stylesheet" href="css/index.css" />
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+	      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+</head>
+<body role="document" ng-app="myApp" class="font-hei" ng-controller="homeController" style="padding-bottom:50px;">
+
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="mainMenu">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-road" aria-hidden="true"></span> 沪牌不求人</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li ui-sref-active="active" ui-sref="start.main"><a href="#/start/main">进入首页</a></a></li>
+					<li ui-sref-active="active" ui-sref="start.about" ><a href="#/start/about">关于我们</a></li>
+					<li ui-sref-active="active" ui-sref="start.contact" ><a href="#/start/contact">联系方式</a></li>
+					<!-- li ui-sref-active="active" ui-sref="start.other" ><a href="#/start/other">其他信息</a></li> -->
+					<li ui-sref-active="active" ui-sref="userinfo.basic" ><a href="#/userinfo/basic">用户信息</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<!--  li ><a href="#" ng-click="printme()">TEST</a></li>-->
+					<li ng-show="UserSvc.getCurrentUser()"><a href="#" ng-click="signOut()">退出登录</a></li>
+					<li ng-show="UserSvc.getCurrentUser()"><a href="#/userinfo/basic">[ {{ UserSvc.getCurrentUser().userName }} ]</a></li>
+					<li ng-show="!UserSvc.getCurrentUser()"><a data-toggle="modal" data-target="#signInBox" href="#">用户登录</a></li>
+					<li ng-show="!UserSvc.getCurrentUser()"><a data-toggle="modal" data-target="#signUpBox" href="#">用户注册</a></li>
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多内容 <span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+							<li><a href="#">我的信息</a></li>
+							<li><a href="#">沪牌日历</a></li>
+							<li role="separator" class="divider"></li>
+							<li class="dropdown-header">优惠信息</li>
+							<li><a href="#">我的优惠码</a></li>
+							<li><a href="#">我的推荐</a></li>
+							<li><a href="/act/signOut">退出登录</a></li>
+						</ul>
+			        </li>
+			      </ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+	
+	<div class="container theme-showcase" role="main">
+		
+		<div ui-view></div>
+		
+		<nav class="navbar navbar-default navbar-fixed-bottom">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-road" aria-hidden="true"></span></a>
+				</div>
+				<a class="navbar-brand navbar-right" href="#">这一个大家的网站</a>
+			</div>
+		</nav>
+		<!-- signIn Modal  -->
+		<div ng-include="'parts/signInBox.html'" ></div>
+	
+		<!-- signUp Modal -->
+		<div ng-include="'parts/signUpBox.html'" ></div>
+	
+		<!-- Bootstrap core JavaScript
+	    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<!--
+		 IE10 viewport hack for Surface/desktop Windows 8 bug 
+		<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+		-->
+		<script src="//cdn.bootcss.com/angular.js/1.2.0/angular.min.js"></script>
+		<script src="//cdn.bootcss.com/angular.js/1.2.0/angular-animate.min.js"></script>
+		<script src="//cdn.bootcss.com/angular-ui-router/1.0.0-alpha0/angular-ui-router.js"></script>
+		
+		<script src="js/ang/app_filter.js"></script>
+		<script src="js/ang/app_svc.js"></script>
+		<script src="js/ang/app.js"></script>
+		<script src="js/ang/controller/home.js"></script>
+		<script src="js/ang/controller/signIn.js"></script>
+		<script src="js/ang/controller/signUp.js"></script>
+		<script src="js/ang/controller/forget.js"></script>
+
+	</div> 
+</body>
+</html>
+</stripes:layout-definition>

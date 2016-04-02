@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="panel panel-default" style="border-top:0px;padding:10px;">
+	  <div class="panel-body">
+	    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>  您还有<span style="color:red;font-size:2em;"> 3 </span>个月的使用机会，马上  <a href="#"><span style="color:red;font-size:1.2em;">充值</span></a> 。
+	  </div>
+	   <!-- Table -->
+	  <table class="table" >
+			<thead>
+				<tr>
+					<th align="right"></th>
+					<th>内容</th>
+					<th>动作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td align="right">用户名</td>
+					<td align="left">{{ UserSvc.getCurrentUser().userName }}</td>
+					<td><a href="#"></a></td>
+				</tr>
+				<tr>
+					<td align="right">密码</td>
+					<td align="left">******</td>
+					<td><a href="#/start/forget"><span class="glyphicon glyphicon-pencil"></span> 修改密码</a></td>
+				</tr>
+				<tr>
+					<td align="right">邮箱地址</td>
+					<td align="left">{{ UserSvc.getCurrentUser().email }}</td>
+					<td><a href="#"><span class="glyphicon glyphicon-pencil"></span> 修改邮箱</a> <a href="#"><span class="glyphicon glyphicon-list-alt"></span> 校验邮箱</a></td>
+				</tr>
+				<tr>
+					<td align="right">手机号码</td>
+					<td align="left">{{ UserSvc.getCurrentUser().userName }}</td>
+					<td><a href="#"><span class="glyphicon glyphicon-signal"></span> 校验手机号码</a></td>
+				</tr>
+				<tr>
+					<td align="right">我的推荐码</td>
+					<td align="left">{{UserSvc.getCurrentUser().recommendCode}}</td>
+					<td><a href="#"><span class="glyphicon glyphicon-pencil"></span> 修改推荐码</a></td>
+				</tr>
+				<tr>
+					<td align="right">过期时间</td>
+					<td align="left">{{UserSvc.getCurrentUser().expiryDay | date:"yyyy-MM-dd" }}</td>
+					<td><a href="#"><span class="glyphicon glyphicon-pencil"></span> 购买</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img data-src="holder.js/100%x200" alt="100%x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzE5IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMxOSAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUzY2QzNWM3NTggdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxNnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTNjZDM1Yzc1OCI+PHJlY3Qgd2lkdGg9IjMxOSIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMTcuOTg0Mzc1IiB5PSIxMDcuMiI+MzE5eDIwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+				<div class="caption">
+					<h3>基本用户</h3>
+					<p>一个月使用权</p>
+					<p>
+						<a href="#" class="btn btn-primary" role="button">购买</a> <a
+							href="#" class="btn btn-default" role="button">查看</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img data-src="holder.js/100%x200" alt="100%x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzE5IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMxOSAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUzY2QzNWM3NTggdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxNnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTNjZDM1Yzc1OCI+PHJlY3Qgd2lkdGg9IjMxOSIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMTcuOTg0Mzc1IiB5PSIxMDcuMiI+MzE5eDIwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+				<div class="caption">
+					<h3>黄金用户</h3>
+					<p>三个月使用权</p>
+					<p>
+						<a href="#" class="btn btn-primary" role="button">购买</a> <a
+							href="#" class="btn btn-default" role="button">查看</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img data-src="holder.js/100%x200" alt="100%x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzE5IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMxOSAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUzY2QzNWM3NTggdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxNnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTNjZDM1Yzc1OCI+PHJlY3Qgd2lkdGg9IjMxOSIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMTcuOTg0Mzc1IiB5PSIxMDcuMiI+MzE5eDIwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+				<div class="caption">
+					<h3>终极用户</h3>
+					<p>不限次数，终生使用。</p>
+					<p>
+						<a href="#" class="btn btn-primary" role="button">购买</a> <a
+							href="#" class="btn btn-default" role="button">查看</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img data-src="holder.js/100%x200" alt="100%x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzE5IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMxOSAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUzY2QzNWM3NTggdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxNnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTNjZDM1Yzc1OCI+PHJlY3Qgd2lkdGg9IjMxOSIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMTcuOTg0Mzc1IiB5PSIxMDcuMiI+MzE5eDIwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+				<div class="caption">
+					<h3>优惠券</h3>
+					<p>用优惠券兑换。</p>
+					<p>
+						<a href="#" class="btn btn-primary" role="button">购买</a> <a
+							href="#" class="btn btn-default" role="button">查看</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+body {
+  padding:70px 0 30px 0;
+  /*font:Microsoft Yahei;*/
+}
+.btn_null{
+	
+}
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Hu Pai Coming!</title>
+	
+	
+	<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+
+</head>
+
+<body role="document" ng-app="myApp" ng-controller="loginController" style="padding-top:40px;" >
+
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">沪牌不求人</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">进入首页</a></li>
+					<li><a href="#about">关于我们</a></li>
+					<li><a href="#contact">联系方式</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+	<div class="jumbotron" style="padding-left:30px;">
+			<h1>沪牌不求人</h1>
+			<p>通过本站大家可以轻松拍买到心仪的沪牌咯  {{ 'World' | greet }}</p>
+			<p>{{ GlobalName }} - {{ person.name }}</p>
+	</div>
+	<div class="container theme-showcase" role="main">
+
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h2>用户登录</h2>
+				<form name="form8" ng-submit="onLogin()" role="form">
+					<div class="form-group"
+						ng-class="{ 'has-error': form8.username.$dirty && form8.username.$error.required }">
+						<label for="username">手机号码  {{parsedValue}}</label> <input type="number"
+							name="username" id="username" class="form-control"
+							ng-minlength="11" ng-maxlength="11"
+							ng-pattern="/^1[0-9]{10}$/" 
+							ng-model="vm.username" required /><span
+							ng-show="form8.username.$dirty && form8.username.$error.required"
+							class="help-block">请输入手机号码</span><span
+							ng-show="form8.username.$error.minlength || form8.username.$error.maxlength"
+							class="help-block">长度不对</span><span
+							ng-show="form8.username.$error.pattern"
+							class="help-block">手机格式不对</span>
+					</div>
+					<div class="form-group"
+						ng-class="{ 'has-error': form8.password.$dirty && form8.password.$error.required }">
+						<label for="password">登录密码</label> <input type="password"
+							name="password" id="password" class="form-control"
+							ng-minlength="6" ng-maxlength="20"
+							ng-model="vm.password" required /> <span
+							ng-show="form8.password.$dirty && form8.password.$error.required"
+							class="help-block">请输入密码</span><span
+							ng-show="form8.password.$error.minlength || form8.password.$error.maxlength"
+							class="help-block">长度不对</span>
+					</div>
+					<span ng-show="form8.$error.loginerror" class="help-block">用户登录密码错误</span>
+					<div class="form-actions">
+						<button type="submit"
+							ng-disabled="form8.$invalid || vm.dataLoading"
+							class="btn btn-primary">Login</button>
+						<img ng-if="vm.dataLoading"
+							src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+						<a href="#/register" class="btn btn-link">Register</a>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="page-header">
+			<h1></h1>
+		</div>
+		<div class="col-md-3">
+            <ul class="nav">
+                <li><a href="#AddNewOrder"> Add New Order </a></li>
+                <li><a href="#ShowOrders"> Show Order </a></li>
+            </ul>
+        </div>
+		<div class="well">
+			<p>这是一段非常具有传奇色彩的成功案例，宇文化及通过软件拍到了98张沪牌。</p>
+		</div>
+
+	</div>
+	<!-- /container -->
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/docs.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	
+	<script src="//cdn.bootcss.com/angular.js/1.2.0/angular.min.js"></script>
+	<script src="//cdn.bootcss.com/angular.js/1.2.0/angular-route.min.js"></script>
+	
+	<script src="js/ang/app_filter.js"></script>
+	<script src="js/ang/app_svc.js"></script>
+	<script src="js/ang/app.js"></script>
+	
+</body>
+</html>

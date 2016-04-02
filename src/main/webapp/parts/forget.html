@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+
+	<div class="panel panel-default" ng-controller="forgetController" >
+	  <div class="panel-body">
+	  
+	  <form name="formForget" ng-submit="onReg()" role="form">
+				<div class="row">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h3 class="modal-title" id="exampleModalLabel"><span class="glyphicon glyphicon-info-sign" aria-hidden="true">  密码重置</h3>
+					</div>
+					<div class="modal-body">
+
+						<div class="form-group"
+							ng-class="{ 'has-error': formForget.userName.$dirty && formForget.userName.$error.required }">
+							<label for="userName">手机号码</label>
+							<input type="number" name="userName" id="userName" 
+								class="form-control"
+								ng-minlength="11" ng-maxlength="11" ng-pattern="/^1[0-9]{10}$/"
+								ng-model="vm.userName" 
+								required />
+								<span ng-show="formForget.userName.$dirty && formForget.userName.$error.required" class="help-block">请输入手机号码</span>
+								<span ng-show="formForget.userName.$error.minlength || formForget.userName.$error.maxlength" class="help-block">长度不对</span>
+								<span ng-show="formForget.userName.$error.pattern" class="help-block">手机格式不对</span>
+						</div>
+						<div class="form-group" 
+							ng-class="{ 'has-error': formForget.password.$dirty && formForget.password.$error.required }">
+							<label for="password">新用户密码</label>
+							<input type="password"
+								name="password" id="password" class="form-control"
+								ng-minlength="6" ng-maxlength="20" ng-model="vm.password"
+								required />
+								<span ng-show="formForget.password.$dirty && formForget.password.$error.required" class="help-block">请输入密码</span>
+								<span ng-show="formForget.password.$error.minlength || formForget.password.$error.maxlength" class="help-block">长度不对</span>
+						</div>
+						<label for="mobcode">手机验证码</label>
+						<div class="input-group">
+						  	<input type="text" name=""mobcode" class="form-control" placeholder="手机验证码" aria-describedby="basic-addon2" 
+						  		ng-model="vm.mobcode">
+						  	<span class="input-group-addon" id="basic-addon2"  style="padding:0px 10px" >
+						  	<a class="btn btn-default btn-sm" ng-disabled="vm.dataLoading || (paracont != '获取验证码') " style="margin:0px" aria-label="Left Align" ng-click="sendPhoneCode()">
+						  		{{paracont}}
+							</a>
+							</span>
+						</div>
+						
+						<span ng-show="formForget.$error.loginerror" class="help-block">错误: {{ formForget.$error.loginerror.jsonmsg }} </span>
+					</div>
+					<div class="modal-footer">
+						<img ng-if="vm.dataLoading"
+							src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+						<button type="submit" ng-disabled="formForget.$invalid || vm.dataLoading"
+							class="btn btn-primary">设定</button>
+					</div>
+				</div>
+			</form>
+			</div>
+	</div>
+	
+</body>
+</html>
