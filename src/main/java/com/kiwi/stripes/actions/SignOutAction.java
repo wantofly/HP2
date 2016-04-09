@@ -19,21 +19,27 @@ public class SignOutAction extends BasicAction
 	private static Logger logger = LoggerFactory.getLogger(SignOutAction.class);
 	
 	@Override
-	protected boolean needUser(String eventName)
+	public boolean needUserSignIn(String eventName)
 	{
 		return false;
 	}
 	
 	@Override
-	protected boolean needUserSignIn(String eventName)
+	public boolean needUser(String eventName)
+	{
+		return false;
+	}
+	@Override
+	public boolean needAdmin(String eventName)
 	{
 		return false;
 	}
 	
+	
     @DefaultHandler
     public Resolution signOut()
     {
-    	logger.debug("+signOut:SignOutAction");
+    	logger.info("+signOut:SignOutAction");
     	this.setCookie("userName",null,0);
 		this.setUserSession(null);
         return new RedirectResolution(IndexAction.class);
@@ -42,7 +48,7 @@ public class SignOutAction extends BasicAction
     @HandlesEvent("json")
     public Resolution signOutJson()
     {
-    	logger.debug("+signOut:SignOutAction");
+    	logger.info("+signOut:SignOutAction");
     	
     	this.setCookie("userName",null,0);
 		this.setUserSession(null);

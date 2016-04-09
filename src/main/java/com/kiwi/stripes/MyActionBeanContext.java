@@ -19,7 +19,7 @@ public class MyActionBeanContext extends ActionBeanContext
 		else
 			this.getRequest().setAttribute("needuser", false);
 	}
-	public boolean getNeeduser(String val){
+	public boolean getNeeduser(){
 		boolean nu = (Boolean)this.getRequest().getAttribute("needuser");
 		return nu;
 	}

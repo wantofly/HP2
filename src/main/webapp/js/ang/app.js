@@ -41,10 +41,6 @@ var myApp = angular.module('myApp', ['ngAnimate','ui.router','myApp.filter', 'my
 		  url: '/other',
 		  templateUrl: 'parts/other.html',
 	  })
-	  .state('start.about', {
-		  url: '/about',
-		  templateUrl: 'parts/about.html',
-	  })
 	  .state('start.forget', {
 		  url: '/forget',
 		  templateUrl: 'parts/forget.html',
@@ -53,29 +49,53 @@ var myApp = angular.module('myApp', ['ngAnimate','ui.router','myApp.filter', 'my
 		  url: '/contact',
 		  templateUrl: 'parts/contact.html',
 	  })
+	  .state('start.about', {
+		  url: '/about',
+		  templateUrl: 'parts/about.html',
+	  })
+	  .state('start.prod', {
+		  url: '/prod',
+		  templateUrl: 'parts/prod/prodmain.html',
+	  })
+		  .state('start.prod.prod1', {
+			  url: '/prod1',
+			  templateUrl: 'parts/prod/prod1.html',
+		  })
+		  .state('start.prod.prod2', {
+			  url: '/prod2',
+			  templateUrl: 'parts/prod/prod2.html',
+		  })
+		  .state('start.prod.prod3', {
+			  url: '/prod2',
+			  templateUrl: 'parts/prod/prod3.html',
+		  })
+		  .state('start.prod.prod4', {
+			  url: '/prod2',
+			  templateUrl: 'parts/prod/prod4.html',
+		  })
 	  .state('userinfo', {
 		  url: '/userinfo',
 		  templateUrl: 'parts/user/userinfo.html',
 	      controller: 'userController'
 	  })
-	  .state('userinfo.msg', {
-		  url: '/msg',
-		  templateUrl: 'parts/user/msg.html',
-	  })
-	  .state('userinfo.balance', {
-		  url: '/balance',
-		  templateUrl: 'parts/user/balance.html',
-	  })
-	  .state('userinfo.basic', {
-		  url: '/basic',
-		  templateUrl: 'parts/user/basic.html',
-	      controller: 'userController',
-	      onEnter: function(UserSvc)
-	      {
-			  console.log(' -->> userinfo.basic');
-			  UserSvc.ajaxGetUserBasicInfo();
-		  },
-	  })
+		  .state('userinfo.msg', {
+			  url: '/msg',
+			  templateUrl: 'parts/user/msg.html',
+		  })
+		  .state('userinfo.balance', {
+			  url: '/balance',
+			  templateUrl: 'parts/user/balance.html',
+		  })
+		  .state('userinfo.basic', {
+			  url: '/basic',
+			  templateUrl: 'parts/user/basic.html',
+		      controller: 'userController',
+		      onEnter: function(UserSvc)
+		      {
+				  console.log(' -->> userinfo.basic');
+				  UserSvc.ajaxGetUserBasicInfo();
+			  },
+		  })
 	  ;
 	  $urlRouterProvider.otherwise('/start/main');
 	})

@@ -67,17 +67,17 @@ public class BasicAction implements ActionBean, ValidationErrorHandler
 			return true;
 		return false;
 	}
-	protected boolean needUserSignIn(String eventName)
+	public boolean needUserSignIn(String eventName)
 	{
 		return false;
 	}
 	
-	protected boolean needUser(String eventName)
+	public boolean needUser(String eventName)
 	{
 		return true;
 	}
 	
-	protected boolean needAdmin(String eventName)
+	public boolean needAdmin(String eventName)
 	{
 		return false;
 	}

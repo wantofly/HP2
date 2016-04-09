@@ -26,16 +26,12 @@
 		<a ng-show="!UserSvc.getCurrentUser()" type="button" class="btn btn-primary" ui-sref="start.forget" href="#/start/forget">忘记密码</a>
 	</div>
 	
-	<div class="well" style="margin-top:20px;">
-		<span class="">{{scopename}}</span>
-	</div>
-	
 	<script type="text/javascript">
 	$('#signInBox').on('hidden.bs.modal', function (e) {
 		  console.log('signIn dismiss ' + window.location);
-		  if (window.location.indexOf('userinfo/basic') > 0){
+		  //if (window.location.indexOf('userinfo/basic') > 0){
 			  //angular-ui-bootstrap.js
-		  }
+		  //}
 	});
 	</script>
 </body>

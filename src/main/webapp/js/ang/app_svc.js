@@ -81,7 +81,7 @@ angular.module('myApp.service',[])
         		method: 'POST', 
         		url: 'act/usersvc/getbasicinfo',
         		params: {
-        			'inputUser.userName':current_user.userName,
+        			'inputUser.userName':current_user.userName
         		}
         	}).success(function(data) {
 				if (data.ret == 0)

@@ -53,16 +53,22 @@ public class UserSvcAction extends BasicAction implements ValidationErrorHandler
     }
 	
 	@Override
-	protected boolean needUserSignIn(String eventName)
+	public boolean needUserSignIn(String eventName)
 	{
 		return true;
 	}
 	
 	@Override
-	protected boolean needUser(String eventName)
+	public boolean needUser(String eventName)
 	{
 		return true;
 	}
+	@Override
+	public boolean needAdmin(String eventName)
+	{
+		return true;
+	}
+	
 	
     @DefaultHandler
     public Resolution signIn()

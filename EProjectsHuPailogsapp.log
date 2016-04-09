@@ -1,0 +1,16 @@
+>>04-03 09:44:45,564INFO [net.sourceforge.stripes]Test: INFO level message.
+>>04-03 09:44:45,565WARN [net.sourceforge.stripes]Test: WARN level message.
+>>04-03 09:44:45,565ERROR[net.sourceforge.stripes]Test: ERROR level message.
+>>04-03 09:47:16,095INFO [com.kiwi.stripes.actions.LogTest]Test: INFO level message.
+>>04-03 09:47:16,097WARN [com.kiwi.stripes.actions.LogTest]Test: WARN level message.
+>>04-03 09:47:16,097ERROR[com.kiwi.stripes.actions.LogTest]Test: ERROR level message.
+>>04-03 09:47:34,225INFO [com.kiwi.stripes.actions.LogTest]Test: INFO level message.
+>>04-03 09:47:34,226WARN [com.kiwi.stripes.actions.LogTest]Test: WARN level message.
+>>04-03 09:47:34,226ERROR[com.kiwi.stripes.actions.LogTest]Test: ERROR level message.
+>>04-03 09:47:55,169INFO [com.kiwi.stripes.actions.LogTest]Test: INFO level message.
+>>04-03 09:47:55,170WARN [com.kiwi.stripes.actions.LogTest]Test: WARN level message.
+>>04-03 09:47:55,171ERROR[com.kiwi.stripes.actions.LogTest]Test: ERROR level message.
+>>04-03 09:49:03,014DEBUG[com.kiwi.stripes.actions.LogTest]Test: DEBUG level message.
+>>04-03 09:49:03,016INFO [com.kiwi.stripes.actions.LogTest]Test: INFO level message.
+>>04-03 09:49:03,016WARN [com.kiwi.stripes.actions.LogTest]Test: WARN level message.
+>>04-03 09:49:03,016ERROR[com.kiwi.stripes.actions.LogTest]Test: ERROR level message.

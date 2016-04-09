@@ -12,16 +12,22 @@ public class ErrorAction extends BasicAction
 	private String message;
 	
 	@Override
-	protected boolean needUserSignIn(String eventName)
+	public boolean needUserSignIn(String eventName)
 	{
 		return false;
 	}
 	
 	@Override
-	protected boolean needUser(String eventName)
+	public boolean needUser(String eventName)
 	{
 		return false;
 	}
+	@Override
+	public boolean needAdmin(String eventName)
+	{
+		return false;
+	}
+	
 	
     @DefaultHandler
     public Resolution error()

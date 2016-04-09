@@ -60,13 +60,18 @@ public class SignUpAction extends BasicAction implements ValidationErrorHandler
     }
 	
 	@Override
-	protected boolean needUserSignIn(String eventName)
+	public boolean needUserSignIn(String eventName)
 	{
 		return false;
 	}
 	
 	@Override
-	protected boolean needUser(String eventName)
+	public boolean needUser(String eventName)
+	{
+		return false;
+	}
+	@Override
+	public boolean needAdmin(String eventName)
 	{
 		return false;
 	}
@@ -103,6 +108,7 @@ public class SignUpAction extends BasicAction implements ValidationErrorHandler
     public Resolution smsSend()
     {
     	String vcode = getVCode();
+    	logger.info("smsSend -> "+vcode);
     	this.getContext().getRequest().getSession().setAttribute("mobvcode", vcode);
     	System.out.println(vcode);
 //    	SendSmsUtil.sendSmsVerificationCode(null,mobile,vcode);

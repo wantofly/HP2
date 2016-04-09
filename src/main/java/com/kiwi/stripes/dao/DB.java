@@ -20,7 +20,7 @@ public class DB
 	{
 		try
 		{
-			this.sqlSessionFactory = new SqlSessionFactoryBuilder().build(Resources.getResourceAsReader("mybatis/mybatis-conf2.xml"));
+			this.sqlSessionFactory = new SqlSessionFactoryBuilder().build(Resources.getResourceAsReader("mybatis/mybatis-conf.xml"));
 //			this.sqlSessionFactory.getConfiguration().addMapper(UserDAO.class);
 		}
 		catch (IOException e)
